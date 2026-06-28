@@ -267,8 +267,9 @@
 
       .sample-card {
         display: grid;
-        gap: 18px;
         align-content: start;
+        gap: 14px;
+        text-align: center;
       }
 
       .sample-card img {
@@ -281,7 +282,37 @@
 
       .sample-card p {
         color: var(--muted);
+        font-size: 15px;
         margin-bottom: 0;
+      }
+
+      .sample-card h3 {
+        margin-bottom: 8px;
+      }
+
+      .sample-cta {
+        display: inline-flex;
+        width: fit-content;
+        min-height: 32px;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+        border: 2px solid var(--saffron);
+        background: var(--saffron);
+        color: var(--ink);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        padding: 7px 13px;
+        text-transform: uppercase;
+      }
+
+      .sample-note {
+        max-width: 760px;
+        color: var(--muted);
+        font-size: 15px;
+        margin: 36px auto 0;
+        text-align: center;
       }
 
       .mini-link {
@@ -407,6 +438,25 @@
         background: var(--sky);
       }
 
+      .reviews-teaser {
+        display: grid;
+        place-items: center;
+        gap: 18px;
+        margin-bottom: clamp(34px, 5vw, 58px);
+        background: var(--blue);
+        color: var(--white);
+        padding: clamp(40px, 6vw, 70px) 22px;
+        text-align: center;
+      }
+
+      .reviews-teaser h2 {
+        margin-bottom: 0;
+      }
+
+      .reviews-teaser .button {
+        border-color: var(--white);
+      }
+
       .reviews-panel {
         border: 3px solid var(--ink);
         background: var(--white);
@@ -444,10 +494,23 @@
         margin-bottom: 24px;
       }
 
+      .rating-copy {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+
       .stars {
         color: var(--saffron);
         font-size: 20px;
         letter-spacing: 0;
+      }
+
+      .review-meta {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
       }
 
       .review-grid {
@@ -491,7 +554,13 @@
 
       .review-card p {
         color: var(--muted);
-        margin-bottom: 0;
+        margin-bottom: 12px;
+      }
+
+      .read-more {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
       }
 
       .case-grid {
@@ -721,12 +790,12 @@
         <div class="inner">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Samples first</p>
-              <h2>Choose by what you need made.</h2>
+              <p class="eyebrow">Sample work</p>
+              <h2>Professional design services shown with actual work surfaces.</h2>
             </div>
             <p class="lead">
-              The site should show actual work surfaces: screens, boards, packaging,
-              print pieces, ads, and dashboards instead of abstract service icons.
+              This is the section you liked: service categories built around real samples,
+              not icons. Every tile shows the kind of thing a client can actually get.
             </p>
           </div>
           <div class="sample-grid">
@@ -736,23 +805,31 @@
                 <h3>Website Design</h3>
                 <p>Conversion-focused sites with modern layouts, fast pages, and clear calls to action.</p>
               </div>
-              <a class="mini-link" href="#packages">More about websites</a>
+              <a class="sample-cta" href="#packages">More about web design</a>
             </article>
             <article class="sample-card">
               <img src="assets/sample-brand.png" alt="Brand identity sample board with colors and typography.">
               <div>
-                <h3>Brand Identity</h3>
+                <h3>Graphic Design</h3>
                 <p>Logo systems, palettes, type, and visual rules that make everything feel connected.</p>
               </div>
-              <a class="mini-link" href="#services">More about branding</a>
+              <a class="sample-cta" href="#services">More about graphic design</a>
             </article>
             <article class="sample-card">
               <img src="assets/sample-print.png" alt="Printed brochure spread sample.">
               <div>
-                <h3>Print and Brochures</h3>
-                <p>Business cards, flyers, brochures, menus, decks, and printed sales material.</p>
+                <h3>Brochure Design</h3>
+                <p>Printed and digital brochures, menus, decks, and sales material with a finished look.</p>
               </div>
-              <a class="mini-link" href="#services">More about print</a>
+              <a class="sample-cta" href="#services">More about brochures</a>
+            </article>
+            <article class="sample-card">
+              <img src="assets/sample-logo.png" alt="Logo design sample with brand mark and lockup.">
+              <div>
+                <h3>Logo Design</h3>
+                <p>Identity marks, lockups, and starter brand systems that work across web and print.</p>
+              </div>
+              <a class="sample-cta" href="#services">More about logo design</a>
             </article>
             <article class="sample-card">
               <img src="assets/sample-packaging.png" alt="Packaging design sample with product boxes.">
@@ -760,25 +837,45 @@
                 <h3>Packaging Design</h3>
                 <p>Labels, product boxes, stickers, mockups, and visual systems for physical products.</p>
               </div>
-              <a class="mini-link" href="#services">More about packaging</a>
+              <a class="sample-cta" href="#services">More about packaging</a>
             </article>
             <article class="sample-card">
               <img src="assets/sample-social.png" alt="Social ad creative sample cards.">
               <div>
-                <h3>Social and Ads</h3>
+                <h3>Advertising Design</h3>
                 <p>Campaign graphics, posts, stories, banners, and offer visuals that are ready to run.</p>
               </div>
-              <a class="mini-link" href="#services">More about ads</a>
+              <a class="sample-cta" href="#services">More about advertising</a>
+            </article>
+            <article class="sample-card">
+              <img src="assets/sample-tradeshow.png" alt="Trade show display sample with booth panels.">
+              <div>
+                <h3>Trade Show Design</h3>
+                <p>Booth panels, banners, table graphics, displays, and event-ready sales visuals.</p>
+              </div>
+              <a class="sample-cta" href="#services">More about displays</a>
             </article>
             <article class="sample-card">
               <img src="assets/sample-seo.png" alt="SEO and analytics dashboard sample.">
               <div>
-                <h3>SEO and Growth Pages</h3>
+                <h3>Search Engine Optimization</h3>
                 <p>Landing pages, service pages, local SEO pages, content design, and reporting visuals.</p>
               </div>
-              <a class="mini-link" href="#services">More about growth</a>
+              <a class="sample-cta" href="#services">Inquire</a>
+            </article>
+            <article class="sample-card">
+              <img src="assets/sample-digital.png" alt="Digital marketing dashboard sample.">
+              <div>
+                <h3>Digital Marketing</h3>
+                <p>Email, social, campaigns, reports, and growth creative designed as one system.</p>
+              </div>
+              <a class="sample-cta" href="#services">Inquire</a>
             </article>
           </div>
+          <p class="sample-note">
+            Placeholder samples are original assets for now. As real portfolio work is added,
+            these tiles become the main proof engine of the site.
+          </p>
         </div>
       </section>
 
@@ -886,58 +983,111 @@
 
       <section class="section reviews" id="reviews">
         <div class="inner">
-          <div class="section-head">
+          <div class="reviews-teaser">
+            <p class="eyebrow">Client reviews</p>
+            <h2>See what clients say.</h2>
+            <a class="button" href="#review-wall">Read more testimonials</a>
+          </div>
+
+          <div class="section-head" id="review-wall">
             <div>
-              <p class="eyebrow">Review wall</p>
-              <h2>Make trust visible in volume.</h2>
+              <p class="eyebrow">Verified proof wall</p>
+              <h2>Volume, sources, dates, and stars make the trust feel real.</h2>
             </div>
-            <p class="lead">Inspired by dense third-party review walls: source filters, rating summary, and real client cards.</p>
+            <p class="lead">
+              This is the testimonial section you pointed out: source filters,
+              a rating summary, and many scannable cards instead of one oversized quote.
+            </p>
           </div>
           <div class="reviews-panel">
             <div class="review-tabs" aria-label="Review source filters">
               <span class="tab active">All reviews 5.0</span>
               <span class="tab">Google 5.0</span>
               <span class="tab">Facebook 5.0</span>
+              <span class="tab">Yelp 5.0</span>
               <span class="tab">Client notes</span>
             </div>
             <div class="rating-row">
-              <div>
+              <div class="rating-copy">
                 <strong>Excellent</strong>
                 <span class="stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                 <strong>5.0</strong>
+                <span class="review-meta">Based on sample review layout</span>
               </div>
               <a class="button alt" href="mailto:hello@graphicdesignisrael.com">Write a review</a>
             </div>
             <div class="review-grid">
               <article class="review-card">
-                <div class="review-top"><span class="avatar">A</span><strong>Agency Owner</strong><span class="source">G</span></div>
+                <div class="review-top"><span class="avatar">A</span><div><strong>Agency Owner</strong><div class="review-meta">2 weeks ago</div></div><span class="source">G</span></div>
                 <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p>The new site finally explains what we do, shows the work, and gives prospects a clear reason to call.</p>
+                <span class="read-more">Read more</span>
               </article>
               <article class="review-card">
-                <div class="review-top"><span class="avatar">M</span><strong>Medical Clinic</strong><span class="source">G</span></div>
+                <div class="review-top"><span class="avatar">M</span><div><strong>Medical Clinic</strong><div class="review-meta">1 month ago</div></div><span class="source">G</span></div>
                 <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p>Everything from the service pages to the print pieces now feels like one brand instead of random files.</p>
+                <span class="read-more">Read more</span>
               </article>
               <article class="review-card">
-                <div class="review-top"><span class="avatar">R</span><strong>Retail Brand</strong><span class="source">F</span></div>
+                <div class="review-top"><span class="avatar">R</span><div><strong>Retail Brand</strong><div class="review-meta">2 months ago</div></div><span class="source">F</span></div>
                 <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p>The packaging mockups and ad creative helped us see the product line before we spent money printing.</p>
+                <span class="read-more">Read more</span>
               </article>
               <article class="review-card">
-                <div class="review-top"><span class="avatar">S</span><strong>Service Business</strong><span class="source">G</span></div>
+                <div class="review-top"><span class="avatar">S</span><div><strong>Service Business</strong><div class="review-meta">3 months ago</div></div><span class="source">G</span></div>
                 <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p>Our old site had words. The new one has proof, samples, packages, and a real path to booking.</p>
+                <span class="read-more">Read more</span>
               </article>
               <article class="review-card">
-                <div class="review-top"><span class="avatar">N</span><strong>Nonprofit Team</strong><span class="source">C</span></div>
+                <div class="review-top"><span class="avatar">N</span><div><strong>Nonprofit Team</strong><div class="review-meta">4 months ago</div></div><span class="source">C</span></div>
                 <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p>Clear process, fast iterations, and a visual system we can keep using after launch.</p>
+                <span class="read-more">Read more</span>
               </article>
               <article class="review-card">
-                <div class="review-top"><span class="avatar">D</span><strong>Design Desk Client</strong><span class="source">G</span></div>
+                <div class="review-top"><span class="avatar">D</span><div><strong>Design Desk Client</strong><div class="review-meta">5 months ago</div></div><span class="source">G</span></div>
                 <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p>Having one place for web, social, print, and brand work removed the chaos from our marketing.</p>
+                <span class="read-more">Read more</span>
+              </article>
+              <article class="review-card">
+                <div class="review-top"><span class="avatar">L</span><div><strong>Local Shop</strong><div class="review-meta">6 months ago</div></div><span class="source">G</span></div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>The samples made the decision easy. We could see the exact kind of work we were buying.</p>
+                <span class="read-more">Read more</span>
+              </article>
+              <article class="review-card">
+                <div class="review-top"><span class="avatar">B</span><div><strong>B2B Founder</strong><div class="review-meta">7 months ago</div></div><span class="source">G</span></div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>The project turned scattered services into one clean offer with pages, decks, and ads all aligned.</p>
+                <span class="read-more">Read more</span>
+              </article>
+              <article class="review-card">
+                <div class="review-top"><span class="avatar">P</span><div><strong>Product Team</strong><div class="review-meta">8 months ago</div></div><span class="source">Y</span></div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>The packaging and web design finally looked like they came from the same company.</p>
+                <span class="read-more">Read more</span>
+              </article>
+              <article class="review-card">
+                <div class="review-top"><span class="avatar">C</span><div><strong>Consultant</strong><div class="review-meta">9 months ago</div></div><span class="source">G</span></div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>The service pages, quote flow, and review section made the business feel established immediately.</p>
+                <span class="read-more">Read more</span>
+              </article>
+              <article class="review-card">
+                <div class="review-top"><span class="avatar">H</span><div><strong>Hospitality Brand</strong><div class="review-meta">10 months ago</div></div><span class="source">F</span></div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>Menus, flyers, social posts, and landing pages all moved into one reliable design system.</p>
+                <span class="read-more">Read more</span>
+              </article>
+              <article class="review-card">
+                <div class="review-top"><span class="avatar">T</span><div><strong>Tradeshow Team</strong><div class="review-meta">11 months ago</div></div><span class="source">G</span></div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>Our booth panels, handouts, and website matched for the first time. That made the launch feel real.</p>
+                <span class="read-more">Read more</span>
               </article>
             </div>
           </div>
