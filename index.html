@@ -689,6 +689,22 @@
         margin-bottom: 0;
       }
 
+      .form-status {
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 0;
+        min-height: 22px;
+      }
+
+      .form-status.is-error {
+        color: var(--coral);
+      }
+
+      .form-status.is-success {
+        color: var(--teal);
+      }
+
       .honeypot {
         position: absolute;
         left: -9999px;
@@ -1239,8 +1255,8 @@
             </p>
             <div class="contact-list">
               <div class="contact-item">
-                <strong>Email</strong>
-                <span>Use the inquiry form</span>
+                <strong>Contact</strong>
+                <span>Use the secure inquiry form so project details stay off the public page.</span>
               </div>
               <div class="contact-item">
                 <strong>Good starting points</strong>
@@ -1310,6 +1326,7 @@
               <div class="form-actions">
                 <button class="button gold" type="submit">Send Inquiry</button>
               </div>
+              <p class="form-status" role="status" aria-live="polite"></p>
               <p class="form-note">Submissions go through the private project inquiry route.</p>
             </form>
           </div>
@@ -1384,6 +1401,7 @@
             <button class="button gold" type="submit">Send Inquiry</button>
             <button class="button alt" type="button" data-close-form>Close</button>
           </div>
+          <p class="form-status" role="status" aria-live="polite"></p>
           <p class="form-note">Submissions go through the private project inquiry route.</p>
         </form>
       </div>
@@ -1473,6 +1491,45 @@
         if (event.target === leadDialog) {
           closeLeadForm();
         }
+      });
+
+      document.querySelectorAll(".lead-form").forEach((form) => {
+        form.addEventListener("submit", async (event) => {
+          if (form.getAttribute("action") !== "/api/contact") {
+            return;
+          }
+
+          event.preventDefault();
+          const status = form.querySelector(".form-status");
+          const submit = form.querySelector("button[type='submit']");
+          const setStatus = (message, type = "") => {
+            status.textContent = message;
+            status.classList.toggle("is-error", type === "error");
+            status.classList.toggle("is-success", type === "success");
+          };
+
+          submit.disabled = true;
+          setStatus("Sending...");
+
+          try {
+            const response = await fetch(form.action, {
+              method: "POST",
+              body: new FormData(form),
+              headers: { Accept: "application/json" }
+            });
+
+            if (!response.ok) {
+              throw new Error("Contact endpoint failed.");
+            }
+
+            form.reset();
+            setStatus("Inquiry sent. We will follow up shortly.", "success");
+          } catch (error) {
+            setStatus("The private form endpoint is not connected yet. Please try again shortly.", "error");
+          } finally {
+            submit.disabled = false;
+          }
+        });
       });
     </script>
   </body>
