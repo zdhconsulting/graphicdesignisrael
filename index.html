@@ -119,6 +119,8 @@
         border: 2px solid var(--ink);
         background: var(--ink);
         color: var(--white);
+        cursor: pointer;
+        font: inherit;
         font-weight: 800;
         letter-spacing: 0;
         padding: 12px 18px;
@@ -304,6 +306,8 @@
         border: 2px solid var(--saffron);
         background: var(--saffron);
         color: var(--ink);
+        cursor: pointer;
+        font: inherit;
         font-size: 11px;
         font-weight: 900;
         letter-spacing: 0.04em;
@@ -356,9 +360,12 @@
         border: 2px solid rgba(21, 22, 26, 0.18);
         background: rgba(255, 255, 255, 0.58);
         color: var(--ink);
+        font-size: 12px;
         font-weight: 900;
+        padding: 10px;
         text-align: center;
         text-transform: uppercase;
+        overflow-wrap: anywhere;
       }
 
       .packages {
@@ -567,90 +574,124 @@
         font-weight: 800;
       }
 
-      .case-grid {
-        display: grid;
-        gap: 22px;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .case-card {
+      .lead-dialog {
+        width: min(720px, calc(100vw - 28px));
         border: 3px solid var(--ink);
         background: var(--white);
+        color: var(--ink);
+        padding: 0;
+        box-shadow: var(--shadow);
       }
 
-      .case-card img {
-        aspect-ratio: 1.48;
-        object-fit: cover;
+      .lead-dialog::backdrop {
+        background: rgba(21, 22, 26, 0.58);
+        backdrop-filter: blur(4px);
       }
 
-      .case-body {
-        padding: 24px;
-      }
-
-      .result {
-        display: inline-block;
-        background: var(--saffron);
-        font-weight: 900;
-        margin-bottom: 12px;
-        padding: 6px 10px;
-      }
-
-      .library {
-        background: var(--white);
-      }
-
-      .service-list {
+      .dialog-shell {
         display: grid;
-        gap: 0;
-        border-top: 2px solid var(--ink);
-      }
-
-      .service-row {
-        display: grid;
-        align-items: center;
         gap: 24px;
-        grid-template-columns: 0.7fr 1fr auto;
-        border-bottom: 2px solid var(--ink);
-        padding: 24px 0;
+        padding: clamp(24px, 4vw, 40px);
       }
 
-      .service-row p {
+      .dialog-head {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .dialog-head h2 {
+        font-size: clamp(32px, 5vw, 56px);
+        margin-bottom: 10px;
+      }
+
+      .dialog-head p {
         color: var(--muted);
         margin-bottom: 0;
       }
 
-      .faq-grid {
+      .icon-button {
         display: grid;
-        gap: 16px;
+        width: 42px;
+        height: 42px;
+        flex: 0 0 auto;
+        place-items: center;
+        border: 2px solid var(--ink);
+        background: var(--paper);
+        color: var(--ink);
+        cursor: pointer;
+        font: inherit;
+        font-size: 24px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .lead-form {
+        display: grid;
+        gap: 18px;
+      }
+
+      .form-grid {
+        display: grid;
+        gap: 14px;
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      details {
-        border: 2px solid var(--ink);
-        background: var(--white);
-        padding: 20px;
+      .field {
+        display: grid;
+        gap: 7px;
       }
 
-      summary {
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: 900;
+      .field.full {
+        grid-column: 1 / -1;
       }
 
-      details p {
+      label {
         color: var(--muted);
-        margin: 14px 0 0;
+        font-size: 13px;
+        font-weight: 900;
+        text-transform: uppercase;
       }
 
-      .final-cta {
-        background: var(--saffron);
-        text-align: center;
+      input,
+      select,
+      textarea {
+        width: 100%;
+        border: 2px solid var(--line);
+        background: #fbfcfa;
+        color: var(--ink);
+        font: inherit;
+        padding: 12px 13px;
       }
 
-      .final-cta h2,
-      .final-cta .lead {
-        margin-left: auto;
-        margin-right: auto;
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--ink);
+        outline: none;
+      }
+
+      textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
+
+      .form-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .form-note {
+        color: var(--muted);
+        font-size: 13px;
+        margin-bottom: 0;
+      }
+
+      .honeypot {
+        position: absolute;
+        left: -9999px;
       }
 
       footer {
@@ -672,8 +713,7 @@
         .proof-grid,
         .packages,
         .steps,
-        .case-grid,
-        .faq-grid {
+        .form-grid {
           grid-template-columns: 1fr;
         }
 
@@ -689,9 +729,6 @@
           column-count: 2;
         }
 
-        .service-row {
-          grid-template-columns: 1fr;
-        }
       }
 
       @media (max-width: 640px) {
@@ -750,9 +787,8 @@
         <a href="#samples">Samples</a>
         <a href="#packages">Packages</a>
         <a href="#reviews">Reviews</a>
-        <a href="#services">Services</a>
       </nav>
-      <a class="button gold" href="mailto:hello@graphicdesignisrael.com">Start</a>
+      <button class="button gold" type="button" data-open-form>Start</button>
     </header>
 
     <main id="top">
@@ -798,8 +834,8 @@
               <h2>Professional design services shown with actual work surfaces.</h2>
             </div>
             <p class="lead">
-              This is the section you liked: service categories built around real samples,
-              not icons. Every tile shows the kind of thing a client can actually get.
+              Service categories built around real samples, not icons. Every tile shows
+              the kind of finished work a client can actually get.
             </p>
           </div>
           <div class="sample-grid">
@@ -809,7 +845,7 @@
                 <h3>Website Design</h3>
                 <p>Conversion-focused sites with modern layouts, fast pages, and clear calls to action.</p>
               </div>
-              <a class="sample-cta" href="#packages">More about web design</a>
+              <button class="sample-cta" type="button" data-open-form>Ask about web design</button>
             </article>
             <article class="sample-card">
               <img src="assets/portfolio-graphic.jpg" alt="Actual graphic design sample from the GDI portfolio folder.">
@@ -817,7 +853,7 @@
                 <h3>Graphic Design</h3>
                 <p>Logo systems, palettes, type, and visual rules that make everything feel connected.</p>
               </div>
-              <a class="sample-cta" href="#services">More about graphic design</a>
+              <button class="sample-cta" type="button" data-open-form>Ask about graphic design</button>
             </article>
             <article class="sample-card">
               <img src="assets/portfolio-brochure.jpg" alt="Actual brochure design sample from the GDI portfolio folder.">
@@ -825,7 +861,7 @@
                 <h3>Brochure Design</h3>
                 <p>Printed and digital brochures, menus, decks, and sales material with a finished look.</p>
               </div>
-              <a class="sample-cta" href="#services">More about brochures</a>
+              <button class="sample-cta" type="button" data-open-form>Ask about brochures</button>
             </article>
             <article class="sample-card">
               <img src="assets/portfolio-logo.jpg" alt="Actual logo and identity sample from the GDI portfolio folder.">
@@ -833,7 +869,7 @@
                 <h3>Logo Design</h3>
                 <p>Identity marks, lockups, and starter brand systems that work across web and print.</p>
               </div>
-              <a class="sample-cta" href="#services">More about logo design</a>
+              <button class="sample-cta" type="button" data-open-form>Ask about logo design</button>
             </article>
             <article class="sample-card">
               <img src="assets/portfolio-packaging.jpg" alt="Actual label and packaging sample from the GDI portfolio folder.">
@@ -841,7 +877,7 @@
                 <h3>Label and Packaging Design</h3>
                 <p>Labels, product visuals, packaging systems, and physical-brand presentation work.</p>
               </div>
-              <a class="sample-cta" href="#services">More about packaging</a>
+              <button class="sample-cta" type="button" data-open-form>Ask about packaging</button>
             </article>
             <article class="sample-card">
               <img src="assets/portfolio-advertising.jpg" alt="Actual advertising and social media sample from the GDI portfolio folder.">
@@ -849,7 +885,7 @@
                 <h3>Advertising Design</h3>
                 <p>Campaign graphics, posts, stories, banners, and offer visuals that are ready to run.</p>
               </div>
-              <a class="sample-cta" href="#services">More about advertising</a>
+              <button class="sample-cta" type="button" data-open-form>Ask about advertising</button>
             </article>
             <article class="sample-card">
               <img src="assets/portfolio-business-card.jpg" alt="Actual business card design sample from the GDI portfolio folder.">
@@ -857,7 +893,7 @@
                 <h3>Business Card Design</h3>
                 <p>Business cards, identity collateral, and print-ready contact pieces for real brands.</p>
               </div>
-              <a class="sample-cta" href="#services">More about cards</a>
+              <button class="sample-cta" type="button" data-open-form>Ask about cards</button>
             </article>
             <article class="sample-card">
               <img src="assets/portfolio-promotional.jpg" alt="Actual promotional design sample from the GDI portfolio folder.">
@@ -865,7 +901,7 @@
                 <h3>Promotional Design</h3>
                 <p>Promotional pages, campaign graphics, explainer visuals, and sales collateral.</p>
               </div>
-              <a class="sample-cta" href="#services">More about promos</a>
+              <button class="sample-cta" type="button" data-open-form>Ask about promos</button>
             </article>
             <article class="sample-card">
               <img src="assets/portfolio-web-mockup.jpg" alt="Actual web and app mockup sample from the GDI portfolio folder.">
@@ -873,7 +909,7 @@
                 <h3>Web and App Mockups</h3>
                 <p>Website concepts, app screens, campaign pages, and interface presentation work.</p>
               </div>
-              <a class="sample-cta" href="#services">Inquire</a>
+              <button class="sample-cta" type="button" data-open-form>Inquire</button>
             </article>
           </div>
           <p class="sample-note">
@@ -886,23 +922,23 @@
       <section class="section proof-band">
         <div class="inner proof-grid">
           <div>
-            <p class="eyebrow">Proof below the samples</p>
-            <h2>Trusted-by should feel like evidence, not decoration.</h2>
+            <p class="eyebrow">Portfolio proof</p>
+            <h2>Real work should lead into real names.</h2>
             <p class="lead">
-              This band is reserved for real client logos, awards, press, platform badges,
-              partner marks, and recognizable proof as the portfolio grows.
+              A clean proof strip for client logos, brand marks, and recognizable project names
+              as the live portfolio gets tightened.
             </p>
           </div>
-          <div class="logo-grid" aria-label="Example trusted-by logo grid">
-            <div class="logo-cell">Local Retail</div>
-            <div class="logo-cell">B2B Service</div>
-            <div class="logo-cell">Medical</div>
-            <div class="logo-cell">Hospitality</div>
-            <div class="logo-cell">Nonprofit</div>
-            <div class="logo-cell">Startup</div>
-            <div class="logo-cell">Real Estate</div>
-            <div class="logo-cell">Food Brand</div>
-            <div class="logo-cell">Creator</div>
+          <div class="logo-grid" aria-label="Selected portfolio names">
+            <div class="logo-cell">Lady Morgana</div>
+            <div class="logo-cell">Mr Stir</div>
+            <div class="logo-cell">Reno Festival</div>
+            <div class="logo-cell">Mobi Might</div>
+            <div class="logo-cell">Wisely</div>
+            <div class="logo-cell">J&amp;B</div>
+            <div class="logo-cell">Poel Group</div>
+            <div class="logo-cell">Scotlyn Ranch</div>
+            <div class="logo-cell">Staycation</div>
           </div>
         </div>
       </section>
@@ -999,7 +1035,7 @@
               <h2>Volume, sources, dates, and stars make the trust feel real.</h2>
             </div>
             <p class="lead">
-              This is the testimonial section you pointed out: source filters,
+              Built for real Google, Facebook, and client-note reviews, with source filters,
               a rating summary, and many scannable cards instead of one oversized quote.
             </p>
           </div>
@@ -1016,9 +1052,9 @@
                 <strong>Excellent</strong>
                 <span class="stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                 <strong>5.0</strong>
-                <span class="review-meta">Based on sample review layout</span>
+                <span class="review-meta">Real review import coming next</span>
               </div>
-              <a class="button alt" href="mailto:hello@graphicdesignisrael.com">Write a review</a>
+              <a class="button alt" href="#contact">Write a review</a>
             </div>
             <div class="review-grid">
               <article class="review-card">
@@ -1030,7 +1066,7 @@
               <article class="review-card">
                 <div class="review-top"><span class="avatar">M</span><div><strong>Medical Clinic</strong><div class="review-meta">1 month ago</div></div><span class="source">G</span></div>
                 <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p>Everything from the service pages to the print pieces now feels like one brand instead of random files.</p>
+                <p>Everything from the service pages to the print pieces now feels like one brand instead of disconnected files.</p>
                 <span class="read-more">Read more</span>
               </article>
               <article class="review-card">
@@ -1098,118 +1134,78 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="inner">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Case study cards</p>
-              <h2>Pretty is not enough. Show the result.</h2>
-            </div>
-            <p class="lead">Case cards should pair a visual surface with a practical business outcome.</p>
-          </div>
-          <div class="case-grid">
-            <article class="case-card">
-              <img src="assets/sample-web.png" alt="Website case study preview.">
-              <div class="case-body">
-                <span class="result">Lead-gen rebuild</span>
-                <h3>Service site that sells the offer faster.</h3>
-                <p>Reworked the hierarchy around proof, packages, and booking paths.</p>
-              </div>
-            </article>
-            <article class="case-card">
-              <img src="assets/sample-brand.png" alt="Brand case study preview.">
-              <div class="case-body">
-                <span class="result">Brand system</span>
-                <h3>A small identity kit that scales across channels.</h3>
-                <p>Colors, type, logo usage, social templates, and print-ready assets.</p>
-              </div>
-            </article>
-            <article class="case-card">
-              <img src="assets/sample-social.png" alt="Campaign case study preview.">
-              <div class="case-body">
-                <span class="result">Campaign sprint</span>
-                <h3>Ad creative built for speed and consistency.</h3>
-                <p>Reusable formats for offers, launches, local campaigns, and retargeting.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section library" id="services">
-        <div class="inner">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Service library</p>
-              <h2>Everything can connect to the same visual system.</h2>
-            </div>
-          </div>
-          <div class="service-list">
-            <article class="service-row">
-              <h3>Websites and landing pages</h3>
-              <p>Marketing sites, service pages, local SEO pages, forms, calls to action, and responsive launch QA.</p>
-              <a class="mini-link" href="mailto:hello@graphicdesignisrael.com">Start</a>
-            </article>
-            <article class="service-row">
-              <h3>Branding and logo systems</h3>
-              <p>Logo lockups, typography, color palettes, brand rules, social templates, and visual direction.</p>
-              <a class="mini-link" href="mailto:hello@graphicdesignisrael.com">Start</a>
-            </article>
-            <article class="service-row">
-              <h3>Print, packaging, and sales material</h3>
-              <p>Business cards, brochures, flyers, menus, product packaging, labels, pitch decks, and trade show graphics.</p>
-              <a class="mini-link" href="mailto:hello@graphicdesignisrael.com">Start</a>
-            </article>
-            <article class="service-row">
-              <h3>Ads, social, and growth creative</h3>
-              <p>Campaign graphics, paid social assets, banners, email visuals, content design, SEO reports, and launch kits.</p>
-              <a class="mini-link" href="mailto:hello@graphicdesignisrael.com">Start</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="inner">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">FAQ</p>
-              <h2>Answer the questions before they slow the sale.</h2>
-            </div>
-          </div>
-          <div class="faq-grid">
-            <details open>
-              <summary>Can this be one big site with many functions?</summary>
-              <p>Yes. The site can start as a clean static marketing site, then grow into portfolio filters, quote forms, review feeds, case study pages, and service-specific funnels.</p>
-            </details>
-            <details>
-              <summary>Do we need real samples?</summary>
-              <p>The sample-work section now uses real portfolio assets from the GDI Drive folder, with room to add more filters and case-study pages later.</p>
-            </details>
-            <details>
-              <summary>Where should reviews come from?</summary>
-              <p>Best source is Google Business Profile, then Facebook, then hand-picked client quotes. We can design the wall now and wire live data later.</p>
-            </details>
-            <details>
-              <summary>Can packages change?</summary>
-              <p>Absolutely. The first draft uses starter/core/ongoing lanes so the page has a sales structure while we refine pricing and scope.</p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section class="section final-cta">
-        <div class="inner">
-          <p class="eyebrow">Next step</p>
-          <h2>Build the mega-site one sharp section at a time.</h2>
-          <p class="lead">We already have the samples grid, trusted proof concept, review wall, packages, process, case cards, and service library scaffolded.</p>
-          <div class="cta-row" style="justify-content: center;">
-            <a class="button" href="mailto:hello@graphicdesignisrael.com">Start the site</a>
-            <a class="button alt" href="#samples">Review sections</a>
-          </div>
-        </div>
-      </section>
     </main>
+
+    <dialog class="lead-dialog" id="start-form" aria-labelledby="start-form-title">
+      <div class="dialog-shell">
+        <div class="dialog-head">
+          <div>
+            <p class="eyebrow">Start a project</p>
+            <h2 id="start-form-title">Tell us what you need designed.</h2>
+            <p>Send the basics and Zev will follow up with the next step.</p>
+          </div>
+          <button class="icon-button" type="button" data-close-form aria-label="Close inquiry form">&times;</button>
+        </div>
+        <form class="lead-form" action="/api/contact" method="POST" accept-charset="UTF-8">
+          <input type="hidden" name="_subject" value="New Graphic Design Israel inquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="honeypot" aria-hidden="true">
+            <label for="company-url">Company URL</label>
+            <input id="company-url" type="text" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="project-type">Project Type</label>
+              <select id="project-type" name="project_type">
+                <option value="">Select one</option>
+                <option>Website design</option>
+                <option>Logo or branding</option>
+                <option>Print, brochure, or business cards</option>
+                <option>Packaging or labels</option>
+                <option>Advertising or social media</option>
+                <option>Ongoing design support</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="timeline">Timeline</label>
+              <select id="timeline" name="timeline">
+                <option value="">Select one</option>
+                <option>ASAP</option>
+                <option>This month</option>
+                <option>1-3 months</option>
+                <option>Still planning</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="message">What do you need?</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="button gold" type="submit">Send Inquiry</button>
+            <button class="button alt" type="button" data-close-form>Close</button>
+          </div>
+          <p class="form-note">Submissions go through the private project inquiry route.</p>
+        </form>
+      </div>
+    </dialog>
 
     <footer>
       <strong>Graphic Design Israel</strong>
@@ -1218,6 +1214,9 @@
 
     <script>
       const nav = document.querySelector("[data-nav]");
+      const leadDialog = document.querySelector("#start-form");
+      const leadOpeners = document.querySelectorAll("[data-open-form]");
+      const leadClosers = document.querySelectorAll("[data-close-form]");
       let lastScroll = window.scrollY;
 
       window.addEventListener("scroll", () => {
@@ -1228,6 +1227,38 @@
       }, { passive: true });
 
       nav.addEventListener("focusin", () => nav.classList.remove("is-hidden"));
+
+      const openLeadForm = () => {
+        nav.classList.remove("is-hidden");
+        if (typeof leadDialog.showModal === "function") {
+          leadDialog.showModal();
+        } else {
+          leadDialog.setAttribute("open", "");
+        }
+        leadDialog.querySelector("input:not([type='hidden'])")?.focus();
+      };
+
+      const closeLeadForm = () => {
+        if (typeof leadDialog.close === "function") {
+          leadDialog.close();
+        } else {
+          leadDialog.removeAttribute("open");
+        }
+      };
+
+      leadOpeners.forEach((opener) => {
+        opener.addEventListener("click", openLeadForm);
+      });
+
+      leadClosers.forEach((closer) => {
+        closer.addEventListener("click", closeLeadForm);
+      });
+
+      leadDialog.addEventListener("click", (event) => {
+        if (event.target === leadDialog) {
+          closeLeadForm();
+        }
+      });
     </script>
   </body>
 </html>
