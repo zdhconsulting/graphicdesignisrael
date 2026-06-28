@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Graphic Design Israel | Coming Soon</title>
+    <meta
+      name="description"
+      content="Graphic Design Israel is getting its new online home."
+    >
+    <meta property="og:title" content="Graphic Design Israel | Coming Soon">
+    <meta
+      property="og:description"
+      content="Brand, web, and visual systems are getting their new home."
+    >
+    <meta property="og:image" content="/assets/coming-soon.png">
+    <meta name="theme-color" content="#f7f8f4">
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f7f8f4;
+        --ink: #1b1b1f;
+        --muted: #5d6268;
+        --teal: #00a6a6;
+        --coral: #ff5a4f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family:
+          Arial,
+          Helvetica,
+          sans-serif;
+      }
+
+      main {
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        padding: clamp(18px, 4vw, 52px);
+      }
+
+      .frame {
+        display: grid;
+        gap: clamp(18px, 3vw, 28px);
+        inline-size: min(100%, 1120px);
+      }
+
+      .poster {
+        display: block;
+        inline-size: 100%;
+        height: auto;
+        border: 8px solid var(--ink);
+        background: var(--paper);
+      }
+
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        color: var(--muted);
+        font-size: clamp(14px, 2vw, 17px);
+        line-height: 1.5;
+      }
+
+      .mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--ink);
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .mark::before {
+        display: block;
+        width: 14px;
+        height: 14px;
+        background: linear-gradient(135deg, var(--teal) 0 50%, var(--coral) 50%);
+        content: "";
+      }
+
+      @media (max-width: 680px) {
+        main {
+          align-content: center;
+          padding-block: 22px;
+        }
+
+        .poster {
+          border-width: 5px;
+        }
+
+        .footer {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="frame" aria-label="Graphic Design Israel coming soon">
+        <img
+          class="poster"
+          src="assets/coming-soon.png"
+          alt="Coming soon. Graphic Design Israel. Brand, web, and visual systems are getting their new home."
+          width="1600"
+          height="900"
+        >
+        <div class="footer">
+          <span class="mark">Graphic Design Israel</span>
+          <span>Launching soon at graphicdesignisrael.com</span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
