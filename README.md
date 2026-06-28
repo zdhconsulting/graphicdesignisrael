@@ -1,5 +1,5 @@
 # Graphic Design Israel
 
-Temporary coming-soon page for `graphicdesignisrael.com`.
+Static mega-site draft for `graphicdesignisrael.com`.
 
-The static site is served from the repository root and uses `assets/coming-soon.png` as the primary visual.
+The current page includes a hero, sample services grid, proof band, packages, process, review wall, case study cards, service library, FAQ, and CTA.

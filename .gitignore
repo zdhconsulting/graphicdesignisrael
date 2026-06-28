@@ -1,2 +1,3 @@
 research/**/*.png
-research/**/page-text.txt
+research/**/*.txt
+tmp/

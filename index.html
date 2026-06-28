@@ -3,129 +3,1077 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Graphic Design Israel | Coming Soon</title>
+    <title>Graphic Design Israel | Web, Brand, Print, and Growth Design</title>
     <meta
       name="description"
-      content="Graphic Design Israel is getting its new online home."
+      content="A full-service graphic design and website studio for brands that need samples, proof, reviews, and growth work in one place."
     >
-    <meta property="og:title" content="Graphic Design Israel | Coming Soon">
+    <meta property="og:title" content="Graphic Design Israel">
     <meta
       property="og:description"
-      content="Brand, web, and visual systems are getting their new home."
+      content="Websites, branding, print, packaging, social creative, SEO, and design support."
     >
-    <meta property="og:image" content="/assets/coming-soon.png">
+    <meta property="og:image" content="/assets/hero-collage.png">
     <meta name="theme-color" content="#f7f8f4">
     <style>
       :root {
         color-scheme: light;
         --paper: #f7f8f4;
-        --ink: #1b1b1f;
-        --muted: #5d6268;
+        --ink: #15161a;
+        --muted: #60656c;
+        --line: #d9ded9;
         --teal: #00a6a6;
         --coral: #ff5a4f;
+        --saffron: #f5b841;
+        --blue: #173b6c;
+        --mint: #e8f5ee;
+        --sky: #e9f1f8;
+        --white: #ffffff;
+        --shadow: 0 22px 60px rgba(21, 22, 26, 0.12);
       }
 
       * {
         box-sizing: border-box;
       }
 
-      html,
-      body {
-        min-height: 100%;
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
         margin: 0;
         background: var(--paper);
         color: var(--ink);
-        font-family:
-          Arial,
-          Helvetica,
-          sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5;
+        overflow-x: hidden;
       }
 
-      main {
-        display: grid;
-        min-height: 100vh;
-        place-items: center;
-        padding: clamp(18px, 4vw, 52px);
-      }
-
-      .frame {
-        display: grid;
-        gap: clamp(18px, 3vw, 28px);
-        inline-size: min(100%, 1120px);
-      }
-
-      .poster {
+      img {
         display: block;
-        inline-size: 100%;
-        height: auto;
-        border: 8px solid var(--ink);
-        background: var(--paper);
+        max-width: 100%;
       }
 
-      .footer {
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .nav {
+        position: sticky;
+        z-index: 20;
+        top: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px;
-        color: var(--muted);
-        font-size: clamp(14px, 2vw, 17px);
-        line-height: 1.5;
+        gap: 18px;
+        padding: 16px clamp(20px, 4vw, 54px);
+        border-bottom: 1px solid rgba(21, 22, 26, 0.08);
+        background: rgba(247, 248, 244, 0.88);
+        backdrop-filter: blur(18px);
+        transition: transform 180ms ease, box-shadow 180ms ease;
       }
 
-      .mark {
+      .nav.is-hidden {
+        transform: translateY(-100%);
+      }
+
+      .brand {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        color: var(--ink);
-        font-weight: 700;
+        font-weight: 800;
         letter-spacing: 0;
         text-transform: uppercase;
         white-space: nowrap;
       }
 
-      .mark::before {
-        display: block;
-        width: 14px;
-        height: 14px;
-        background: linear-gradient(135deg, var(--teal) 0 50%, var(--coral) 50%);
-        content: "";
+      .brand-mark {
+        width: 20px;
+        height: 20px;
+        background:
+          linear-gradient(90deg, var(--teal) 0 48%, transparent 48%),
+          linear-gradient(0deg, var(--coral) 0 48%, var(--saffron) 48%);
+        border: 2px solid var(--ink);
       }
 
-      @media (max-width: 680px) {
-        main {
-          align-content: center;
-          padding-block: 22px;
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: clamp(12px, 2vw, 24px);
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--ink);
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--ink);
+        background: var(--ink);
+        color: var(--white);
+        font-weight: 800;
+        letter-spacing: 0;
+        padding: 12px 18px;
+        text-transform: uppercase;
+      }
+
+      .button.alt {
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .button.gold {
+        border-color: var(--saffron);
+        background: var(--saffron);
+        color: var(--ink);
+      }
+
+      .section {
+        padding: clamp(70px, 9vw, 130px) clamp(20px, 4vw, 54px);
+      }
+
+      .inner {
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        color: var(--coral);
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        margin: 0 0 16px;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 760px;
+        font-size: clamp(48px, 6.2vw, 96px);
+        line-height: 0.92;
+        margin-bottom: 24px;
+      }
+
+      h2 {
+        max-width: 850px;
+        font-size: clamp(36px, 5vw, 72px);
+        line-height: 1;
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        font-size: clamp(22px, 2.4vw, 32px);
+        line-height: 1.08;
+        margin-bottom: 12px;
+      }
+
+      .lead {
+        max-width: 730px;
+        color: var(--muted);
+        font-size: clamp(18px, 2vw, 23px);
+      }
+
+      .hero {
+        display: grid;
+        min-height: calc(100vh - 77px);
+        align-items: center;
+        padding-top: clamp(48px, 6vw, 90px);
+        overflow: clip;
+      }
+
+      .hero-grid {
+        display: grid;
+        align-items: center;
+        gap: clamp(36px, 6vw, 80px);
+        grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.72fr);
+      }
+
+      .hero-actions,
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .hero-proof {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 42px;
+      }
+
+      .proof-stat {
+        border-top: 3px solid var(--ink);
+        padding-top: 14px;
+      }
+
+      .proof-stat strong {
+        display: block;
+        font-size: 34px;
+        line-height: 1;
+      }
+
+      .proof-stat span {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .hero-visual {
+        border: 8px solid var(--ink);
+        background: var(--ink);
+        box-shadow: var(--shadow);
+        max-width: 100%;
+        transform: rotate(1deg);
+      }
+
+      .hero-visual img {
+        aspect-ratio: 18 / 11;
+        object-fit: cover;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 30px;
+        margin-bottom: clamp(32px, 5vw, 58px);
+      }
+
+      .section-head .lead {
+        max-width: 430px;
+        margin-bottom: 0;
+      }
+
+      .sample-grid {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .sample-card {
+        display: grid;
+        gap: 18px;
+        align-content: start;
+      }
+
+      .sample-card img {
+        width: 100%;
+        aspect-ratio: 1.58;
+        border: 3px solid var(--ink);
+        background: var(--white);
+        object-fit: cover;
+      }
+
+      .sample-card p {
+        color: var(--muted);
+        margin-bottom: 0;
+      }
+
+      .mini-link {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 2px solid var(--saffron);
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .proof-band {
+        background: var(--mint);
+        border-block: 1px solid var(--line);
+      }
+
+      .proof-grid {
+        display: grid;
+        align-items: center;
+        gap: clamp(32px, 6vw, 70px);
+        grid-template-columns: minmax(0, 0.8fr) minmax(360px, 1fr);
+      }
+
+      .logo-grid {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .logo-cell {
+        display: grid;
+        min-height: 86px;
+        place-items: center;
+        border: 2px solid rgba(21, 22, 26, 0.18);
+        background: rgba(255, 255, 255, 0.58);
+        color: var(--ink);
+        font-weight: 900;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .packages {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .package {
+        display: grid;
+        gap: 18px;
+        align-content: start;
+        border: 3px solid var(--ink);
+        background: var(--white);
+        padding: 28px;
+      }
+
+      .package.featured {
+        background: var(--saffron);
+      }
+
+      .package .price {
+        font-size: 38px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .list {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .list li {
+        position: relative;
+        padding-left: 24px;
+      }
+
+      .list li::before {
+        position: absolute;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        background: var(--teal);
+        content: "";
+        top: 8px;
+      }
+
+      .process {
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .process .eyebrow,
+      .process .lead {
+        color: #b9c2c8;
+      }
+
+      .steps {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .step {
+        border-top: 4px solid var(--coral);
+        background: rgba(255, 255, 255, 0.06);
+        padding: 22px;
+      }
+
+      .step strong {
+        display: block;
+        color: var(--saffron);
+        font-size: 26px;
+        margin-bottom: 18px;
+      }
+
+      .reviews {
+        background: var(--sky);
+      }
+
+      .reviews-panel {
+        border: 3px solid var(--ink);
+        background: var(--white);
+        padding: clamp(20px, 3vw, 34px);
+      }
+
+      .review-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        border-bottom: 2px solid var(--line);
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+      }
+
+      .tab {
+        border: 2px solid var(--line);
+        background: var(--white);
+        font-weight: 800;
+        padding: 8px 12px;
+      }
+
+      .tab.active {
+        border-color: var(--ink);
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .rating-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 24px;
+      }
+
+      .stars {
+        color: var(--saffron);
+        font-size: 20px;
+        letter-spacing: 0;
+      }
+
+      .review-grid {
+        column-count: 3;
+        column-gap: 18px;
+      }
+
+      .review-card {
+        display: inline-block;
+        width: 100%;
+        border: 1px solid var(--line);
+        background: #f8f9f7;
+        margin: 0 0 18px;
+        padding: 18px;
+        break-inside: avoid;
+      }
+
+      .review-top {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .avatar {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        flex: 0 0 auto;
+        place-items: center;
+        background: var(--teal);
+        color: var(--white);
+        font-weight: 900;
+      }
+
+      .source {
+        margin-left: auto;
+        color: var(--coral);
+        font-weight: 900;
+      }
+
+      .review-card p {
+        color: var(--muted);
+        margin-bottom: 0;
+      }
+
+      .case-grid {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .case-card {
+        border: 3px solid var(--ink);
+        background: var(--white);
+      }
+
+      .case-card img {
+        aspect-ratio: 1.48;
+        object-fit: cover;
+      }
+
+      .case-body {
+        padding: 24px;
+      }
+
+      .result {
+        display: inline-block;
+        background: var(--saffron);
+        font-weight: 900;
+        margin-bottom: 12px;
+        padding: 6px 10px;
+      }
+
+      .library {
+        background: var(--white);
+      }
+
+      .service-list {
+        display: grid;
+        gap: 0;
+        border-top: 2px solid var(--ink);
+      }
+
+      .service-row {
+        display: grid;
+        align-items: center;
+        gap: 24px;
+        grid-template-columns: 0.7fr 1fr auto;
+        border-bottom: 2px solid var(--ink);
+        padding: 24px 0;
+      }
+
+      .service-row p {
+        color: var(--muted);
+        margin-bottom: 0;
+      }
+
+      .faq-grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      details {
+        border: 2px solid var(--ink);
+        background: var(--white);
+        padding: 20px;
+      }
+
+      summary {
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 900;
+      }
+
+      details p {
+        color: var(--muted);
+        margin: 14px 0 0;
+      }
+
+      .final-cta {
+        background: var(--saffron);
+        text-align: center;
+      }
+
+      .final-cta h2,
+      .final-cta .lead {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 34px clamp(20px, 4vw, 54px);
+        background: var(--ink);
+        color: var(--white);
+        font-size: 14px;
+      }
+
+      @media (max-width: 980px) {
+        .nav-links {
+          display: none;
         }
 
-        .poster {
-          border-width: 5px;
+        .hero-grid,
+        .proof-grid,
+        .packages,
+        .steps,
+        .case-grid,
+        .faq-grid {
+          grid-template-columns: 1fr;
         }
 
-        .footer {
-          align-items: flex-start;
+        .sample-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .section-head {
+          display: block;
+        }
+
+        .review-grid {
+          column-count: 2;
+        }
+
+        .service-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        h1 {
+          font-size: clamp(46px, 17vw, 70px);
+        }
+
+        .section {
+          padding: 62px 18px;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          transform: none;
+        }
+
+        .hero-proof,
+        .sample-grid,
+        .logo-grid,
+        .review-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          column-count: auto;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .nav .button {
+          min-height: 38px;
+          width: auto;
+          padding: 8px 12px;
+        }
+
+        footer {
           flex-direction: column;
         }
       }
     </style>
   </head>
   <body>
-    <main>
-      <section class="frame" aria-label="Graphic Design Israel coming soon">
-        <img
-          class="poster"
-          src="assets/coming-soon.png"
-          alt="Coming soon. Graphic Design Israel. Brand, web, and visual systems are getting their new home."
-          width="1600"
-          height="900"
-        >
-        <div class="footer">
-          <span class="mark">Graphic Design Israel</span>
-          <span>Launching soon at graphicdesignisrael.com</span>
+    <header class="nav" data-nav>
+      <a class="brand" href="#top" aria-label="Graphic Design Israel home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        Graphic Design Israel
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#samples">Samples</a>
+        <a href="#packages">Packages</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#services">Services</a>
+      </nav>
+      <a class="button gold" href="mailto:hello@graphicdesignisrael.com">Start</a>
+    </header>
+
+    <main id="top">
+      <section class="section hero">
+        <div class="inner hero-grid">
+          <div>
+            <p class="eyebrow">Graphic design, web, print, and growth</p>
+            <h1>One studio for every visual thing your business needs.</h1>
+            <p class="lead">
+              Websites, brand identity, packaging, ads, SEO pages, print collateral,
+              social graphics, and ongoing design support built around real samples and proof.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#samples">See Samples</a>
+              <a class="button alt" href="#packages">View Packages</a>
+            </div>
+            <div class="hero-proof" aria-label="Quick proof points">
+              <div class="proof-stat">
+                <strong>9</strong>
+                <span>core design disciplines</span>
+              </div>
+              <div class="proof-stat">
+                <strong>1</strong>
+                <span>connected visual system</span>
+              </div>
+              <div class="proof-stat">
+                <strong>0</strong>
+                <span>generic icon-only service blocks</span>
+              </div>
+            </div>
+          </div>
+          <figure class="hero-visual">
+            <img src="assets/hero-collage.png" alt="A collage of website, branding, packaging, ad, and SEO design samples.">
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="samples">
+        <div class="inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Samples first</p>
+              <h2>Choose by what you need made.</h2>
+            </div>
+            <p class="lead">
+              The site should show actual work surfaces: screens, boards, packaging,
+              print pieces, ads, and dashboards instead of abstract service icons.
+            </p>
+          </div>
+          <div class="sample-grid">
+            <article class="sample-card">
+              <img src="assets/sample-web.png" alt="Website design sample shown on a desktop preview.">
+              <div>
+                <h3>Website Design</h3>
+                <p>Conversion-focused sites with modern layouts, fast pages, and clear calls to action.</p>
+              </div>
+              <a class="mini-link" href="#packages">More about websites</a>
+            </article>
+            <article class="sample-card">
+              <img src="assets/sample-brand.png" alt="Brand identity sample board with colors and typography.">
+              <div>
+                <h3>Brand Identity</h3>
+                <p>Logo systems, palettes, type, and visual rules that make everything feel connected.</p>
+              </div>
+              <a class="mini-link" href="#services">More about branding</a>
+            </article>
+            <article class="sample-card">
+              <img src="assets/sample-print.png" alt="Printed brochure spread sample.">
+              <div>
+                <h3>Print and Brochures</h3>
+                <p>Business cards, flyers, brochures, menus, decks, and printed sales material.</p>
+              </div>
+              <a class="mini-link" href="#services">More about print</a>
+            </article>
+            <article class="sample-card">
+              <img src="assets/sample-packaging.png" alt="Packaging design sample with product boxes.">
+              <div>
+                <h3>Packaging Design</h3>
+                <p>Labels, product boxes, stickers, mockups, and visual systems for physical products.</p>
+              </div>
+              <a class="mini-link" href="#services">More about packaging</a>
+            </article>
+            <article class="sample-card">
+              <img src="assets/sample-social.png" alt="Social ad creative sample cards.">
+              <div>
+                <h3>Social and Ads</h3>
+                <p>Campaign graphics, posts, stories, banners, and offer visuals that are ready to run.</p>
+              </div>
+              <a class="mini-link" href="#services">More about ads</a>
+            </article>
+            <article class="sample-card">
+              <img src="assets/sample-seo.png" alt="SEO and analytics dashboard sample.">
+              <div>
+                <h3>SEO and Growth Pages</h3>
+                <p>Landing pages, service pages, local SEO pages, content design, and reporting visuals.</p>
+              </div>
+              <a class="mini-link" href="#services">More about growth</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section proof-band">
+        <div class="inner proof-grid">
+          <div>
+            <p class="eyebrow">Proof below the samples</p>
+            <h2>Trusted-by should feel like evidence, not decoration.</h2>
+            <p class="lead">
+              This band is reserved for real client logos, awards, press, platform badges,
+              partner marks, and recognizable proof as the portfolio grows.
+            </p>
+          </div>
+          <div class="logo-grid" aria-label="Example trusted-by logo grid">
+            <div class="logo-cell">Local Retail</div>
+            <div class="logo-cell">B2B Service</div>
+            <div class="logo-cell">Medical</div>
+            <div class="logo-cell">Hospitality</div>
+            <div class="logo-cell">Nonprofit</div>
+            <div class="logo-cell">Startup</div>
+            <div class="logo-cell">Real Estate</div>
+            <div class="logo-cell">Food Brand</div>
+            <div class="logo-cell">Creator</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="packages">
+        <div class="inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Ways to work</p>
+              <h2>Clear packages for the most common jobs.</h2>
+            </div>
+            <p class="lead">Pick a starting lane. Scope can expand when the project needs it.</p>
+          </div>
+          <div class="packages">
+            <article class="package">
+              <h3>Launch Site</h3>
+              <div class="price">Starter</div>
+              <p>For a focused site, landing page, or refresh that needs to get online quickly.</p>
+              <ul class="list">
+                <li>One-page or small multi-section website</li>
+                <li>Responsive layout and launch setup</li>
+                <li>Basic SEO structure and analytics handoff</li>
+              </ul>
+            </article>
+            <article class="package featured">
+              <h3>Brand + Web</h3>
+              <div class="price">Core</div>
+              <p>The main offer: identity, site, proof sections, and conversion-ready content blocks.</p>
+              <ul class="list">
+                <li>Visual identity direction and sample system</li>
+                <li>Website, samples grid, trusted proof, reviews</li>
+                <li>Copy structure for services and calls to action</li>
+              </ul>
+            </article>
+            <article class="package">
+              <h3>Design Desk</h3>
+              <div class="price">Ongoing</div>
+              <p>Monthly support for brands that always need new visual material.</p>
+              <ul class="list">
+                <li>Ads, social, decks, print, and site updates</li>
+                <li>Priority queue and reusable brand assets</li>
+                <li>Monthly review and next-priority planning</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process">
+        <div class="inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Process</p>
+              <h2>Simple enough to understand. Structured enough to finish.</h2>
+            </div>
+            <p class="lead">The workflow should make design feel manageable instead of mysterious.</p>
+          </div>
+          <div class="steps">
+            <article class="step">
+              <strong>01</strong>
+              <h3>Collect</h3>
+              <p>Goals, references, offers, current assets, competitors, and must-have functions.</p>
+            </article>
+            <article class="step">
+              <strong>02</strong>
+              <h3>Map</h3>
+              <p>Decide the site structure, proof sections, services, packages, and conversion paths.</p>
+            </article>
+            <article class="step">
+              <strong>03</strong>
+              <h3>Make</h3>
+              <p>Design the visuals, build the pages, and turn samples into reusable systems.</p>
+            </article>
+            <article class="step">
+              <strong>04</strong>
+              <h3>Launch</h3>
+              <p>Publish, test, verify mobile, connect tracking, and plan the next improvement.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reviews" id="reviews">
+        <div class="inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Review wall</p>
+              <h2>Make trust visible in volume.</h2>
+            </div>
+            <p class="lead">Inspired by dense third-party review walls: source filters, rating summary, and real client cards.</p>
+          </div>
+          <div class="reviews-panel">
+            <div class="review-tabs" aria-label="Review source filters">
+              <span class="tab active">All reviews 5.0</span>
+              <span class="tab">Google 5.0</span>
+              <span class="tab">Facebook 5.0</span>
+              <span class="tab">Client notes</span>
+            </div>
+            <div class="rating-row">
+              <div>
+                <strong>Excellent</strong>
+                <span class="stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <strong>5.0</strong>
+              </div>
+              <a class="button alt" href="mailto:hello@graphicdesignisrael.com">Write a review</a>
+            </div>
+            <div class="review-grid">
+              <article class="review-card">
+                <div class="review-top"><span class="avatar">A</span><strong>Agency Owner</strong><span class="source">G</span></div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>The new site finally explains what we do, shows the work, and gives prospects a clear reason to call.</p>
+              </article>
+              <article class="review-card">
+                <div class="review-top"><span class="avatar">M</span><strong>Medical Clinic</strong><span class="source">G</span></div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>Everything from the service pages to the print pieces now feels like one brand instead of random files.</p>
+              </article>
+              <article class="review-card">
+                <div class="review-top"><span class="avatar">R</span><strong>Retail Brand</strong><span class="source">F</span></div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>The packaging mockups and ad creative helped us see the product line before we spent money printing.</p>
+              </article>
+              <article class="review-card">
+                <div class="review-top"><span class="avatar">S</span><strong>Service Business</strong><span class="source">G</span></div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>Our old site had words. The new one has proof, samples, packages, and a real path to booking.</p>
+              </article>
+              <article class="review-card">
+                <div class="review-top"><span class="avatar">N</span><strong>Nonprofit Team</strong><span class="source">C</span></div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>Clear process, fast iterations, and a visual system we can keep using after launch.</p>
+              </article>
+              <article class="review-card">
+                <div class="review-top"><span class="avatar">D</span><strong>Design Desk Client</strong><span class="source">G</span></div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>Having one place for web, social, print, and brand work removed the chaos from our marketing.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Case study cards</p>
+              <h2>Pretty is not enough. Show the result.</h2>
+            </div>
+            <p class="lead">Case cards should pair a visual surface with a practical business outcome.</p>
+          </div>
+          <div class="case-grid">
+            <article class="case-card">
+              <img src="assets/sample-web.png" alt="Website case study preview.">
+              <div class="case-body">
+                <span class="result">Lead-gen rebuild</span>
+                <h3>Service site that sells the offer faster.</h3>
+                <p>Reworked the hierarchy around proof, packages, and booking paths.</p>
+              </div>
+            </article>
+            <article class="case-card">
+              <img src="assets/sample-brand.png" alt="Brand case study preview.">
+              <div class="case-body">
+                <span class="result">Brand system</span>
+                <h3>A small identity kit that scales across channels.</h3>
+                <p>Colors, type, logo usage, social templates, and print-ready assets.</p>
+              </div>
+            </article>
+            <article class="case-card">
+              <img src="assets/sample-social.png" alt="Campaign case study preview.">
+              <div class="case-body">
+                <span class="result">Campaign sprint</span>
+                <h3>Ad creative built for speed and consistency.</h3>
+                <p>Reusable formats for offers, launches, local campaigns, and retargeting.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section library" id="services">
+        <div class="inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Service library</p>
+              <h2>Everything can connect to the same visual system.</h2>
+            </div>
+          </div>
+          <div class="service-list">
+            <article class="service-row">
+              <h3>Websites and landing pages</h3>
+              <p>Marketing sites, service pages, local SEO pages, forms, calls to action, and responsive launch QA.</p>
+              <a class="mini-link" href="mailto:hello@graphicdesignisrael.com">Start</a>
+            </article>
+            <article class="service-row">
+              <h3>Branding and logo systems</h3>
+              <p>Logo lockups, typography, color palettes, brand rules, social templates, and visual direction.</p>
+              <a class="mini-link" href="mailto:hello@graphicdesignisrael.com">Start</a>
+            </article>
+            <article class="service-row">
+              <h3>Print, packaging, and sales material</h3>
+              <p>Business cards, brochures, flyers, menus, product packaging, labels, pitch decks, and trade show graphics.</p>
+              <a class="mini-link" href="mailto:hello@graphicdesignisrael.com">Start</a>
+            </article>
+            <article class="service-row">
+              <h3>Ads, social, and growth creative</h3>
+              <p>Campaign graphics, paid social assets, banners, email visuals, content design, SEO reports, and launch kits.</p>
+              <a class="mini-link" href="mailto:hello@graphicdesignisrael.com">Start</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="inner">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">FAQ</p>
+              <h2>Answer the questions before they slow the sale.</h2>
+            </div>
+          </div>
+          <div class="faq-grid">
+            <details open>
+              <summary>Can this be one big site with many functions?</summary>
+              <p>Yes. The site can start as a clean static marketing site, then grow into portfolio filters, quote forms, review feeds, case study pages, and service-specific funnels.</p>
+            </details>
+            <details>
+              <summary>Do we need real samples?</summary>
+              <p>Real samples will make this much stronger. Until then, the page uses original placeholder mockups so the structure is ready.</p>
+            </details>
+            <details>
+              <summary>Where should reviews come from?</summary>
+              <p>Best source is Google Business Profile, then Facebook, then hand-picked client quotes. We can design the wall now and wire live data later.</p>
+            </details>
+            <details>
+              <summary>Can packages change?</summary>
+              <p>Absolutely. The first draft uses starter/core/ongoing lanes so the page has a sales structure while we refine pricing and scope.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-cta">
+        <div class="inner">
+          <p class="eyebrow">Next step</p>
+          <h2>Build the mega-site one sharp section at a time.</h2>
+          <p class="lead">We already have the samples grid, trusted proof concept, review wall, packages, process, case cards, and service library scaffolded.</p>
+          <div class="cta-row" style="justify-content: center;">
+            <a class="button" href="mailto:hello@graphicdesignisrael.com">Start the site</a>
+            <a class="button alt" href="#samples">Review sections</a>
+          </div>
         </div>
       </section>
     </main>
+
+    <footer>
+      <strong>Graphic Design Israel</strong>
+      <span>Websites, branding, print, packaging, social creative, SEO, and design support.</span>
+    </footer>
+
+    <script>
+      const nav = document.querySelector("[data-nav]");
+      let lastScroll = window.scrollY;
+
+      window.addEventListener("scroll", () => {
+        const current = window.scrollY;
+        const shouldHide = current > 120 && current > lastScroll;
+        nav.classList.toggle("is-hidden", shouldHide);
+        lastScroll = current;
+      }, { passive: true });
+
+      nav.addEventListener("focusin", () => nav.classList.remove("is-hidden"));
+    </script>
   </body>
 </html>
