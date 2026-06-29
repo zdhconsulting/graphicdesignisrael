@@ -689,22 +689,6 @@
         margin-bottom: 0;
       }
 
-      .form-status {
-        color: var(--muted);
-        font-size: 14px;
-        font-weight: 700;
-        margin-bottom: 0;
-        min-height: 22px;
-      }
-
-      .form-status.is-error {
-        color: var(--coral);
-      }
-
-      .form-status.is-success {
-        color: var(--teal);
-      }
-
       .honeypot {
         position: absolute;
         left: -9999px;
@@ -1271,7 +1255,7 @@
 
           <div class="contact-form-shell">
             <h3>Tell us about the project.</h3>
-            <form class="lead-form" action="/api/contact" method="POST" accept-charset="UTF-8">
+            <form class="lead-form" action="https://formsubmit.co/b38260ab35cb2f9d6f01daf47cf60f26" method="POST" accept-charset="UTF-8">
               <input type="hidden" name="_subject" value="New Graphic Design Israel website inquiry">
               <input type="hidden" name="_template" value="table">
               <input type="hidden" name="_captcha" value="false">
@@ -1326,8 +1310,7 @@
               <div class="form-actions">
                 <button class="button gold" type="submit">Send Inquiry</button>
               </div>
-              <p class="form-status" role="status" aria-live="polite"></p>
-              <p class="form-note">Submissions go through the private project inquiry route.</p>
+              <p class="form-note">Submissions go through a protected form endpoint. The destination email is not published on this site.</p>
             </form>
           </div>
         </div>
@@ -1345,7 +1328,7 @@
           </div>
           <button class="icon-button" type="button" data-close-form aria-label="Close inquiry form">&times;</button>
         </div>
-        <form class="lead-form" action="/api/contact" method="POST" accept-charset="UTF-8">
+        <form class="lead-form" action="https://formsubmit.co/b38260ab35cb2f9d6f01daf47cf60f26" method="POST" accept-charset="UTF-8">
           <input type="hidden" name="_subject" value="New Graphic Design Israel inquiry">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
@@ -1401,8 +1384,7 @@
             <button class="button gold" type="submit">Send Inquiry</button>
             <button class="button alt" type="button" data-close-form>Close</button>
           </div>
-          <p class="form-status" role="status" aria-live="polite"></p>
-          <p class="form-note">Submissions go through the private project inquiry route.</p>
+          <p class="form-note">Submissions go through a protected form endpoint. The destination email is not published on this site.</p>
         </form>
       </div>
     </dialog>
@@ -1491,45 +1473,6 @@
         if (event.target === leadDialog) {
           closeLeadForm();
         }
-      });
-
-      document.querySelectorAll(".lead-form").forEach((form) => {
-        form.addEventListener("submit", async (event) => {
-          if (form.getAttribute("action") !== "/api/contact") {
-            return;
-          }
-
-          event.preventDefault();
-          const status = form.querySelector(".form-status");
-          const submit = form.querySelector("button[type='submit']");
-          const setStatus = (message, type = "") => {
-            status.textContent = message;
-            status.classList.toggle("is-error", type === "error");
-            status.classList.toggle("is-success", type === "success");
-          };
-
-          submit.disabled = true;
-          setStatus("Sending...");
-
-          try {
-            const response = await fetch(form.action, {
-              method: "POST",
-              body: new FormData(form),
-              headers: { Accept: "application/json" }
-            });
-
-            if (!response.ok) {
-              throw new Error("Contact endpoint failed.");
-            }
-
-            form.reset();
-            setStatus("Inquiry sent. We will follow up shortly.", "success");
-          } catch (error) {
-            setStatus("The private form endpoint is not connected yet. Please try again shortly.", "error");
-          } finally {
-            submit.disabled = false;
-          }
-        });
       });
     </script>
   </body>
